@@ -1,0 +1,8 @@
+x = runif(80)
+y = runif(80)
+quartzFonts(roboto = c("Maven Pro Regular","Maven Pro Medium","Maven Pro Black","Maven Pro Bold"))
+par(family="roboto",cex=1.12)
+plot(x,y,bty='n',xaxt='n',yaxt='n',xlab="",ylab="",pch=19)
+grid(lty=3)
+axis(1, seq(-1,1,0.2),labels = T,col="#ffffff",font.axis = 1, tck=F)
+axis(2, seq(-1,1,0.2),labels = T,col="#ffffff",font.axis = 1, tck=F,las=2)
