@@ -1,8 +1,43 @@
-x = runif(80)
-y = runif(80)
-quartzFonts(roboto = c("Maven Pro Regular","Maven Pro Medium","Maven Pro Black","Maven Pro Bold"))
-par(family="roboto",cex=1.12)
-plot(x,y,bty='n',xaxt='n',yaxt='n',xlab="",ylab="",pch=19)
-grid(lty=3)
-axis(1, seq(-1,1,0.2),labels = T,col="#ffffff",font.axis = 1, tck=F)
-axis(2, seq(-1,1,0.2),labels = T,col="#ffffff",font.axis = 1, tck=F,las=2)
+
+myScatterPlot <- function(x.values,
+                          y.values,
+                          main.label="myScatterplot",
+                          x.label='X values',
+                          y.label='Y values',
+                          rangeX=c(min(x.values),max(x.values)),
+                          rangeY=c(min(y.values),max(y.values)),
+                          stepValue=1) {
+  
+  # set font
+  quartzFonts(maven = c("Maven Pro Regular","Maven Pro Medium","Maven Pro Black","Maven Pro Bold"))
+  par(family="maven",cex=1.12)
+  
+  min.x = min(x.values)
+  max.x = max(x.values)
+  min.y = min(y.values)
+  max.y = max(y.values)
+  
+  cat('suggested X range: ',min.x,' < X < ',max.x,'\n')
+  cat('suggested Y range: ',min.y,' < Y < ',max.y)
+  
+  # plotting
+  plot(x.values,y.values,bty='n',xaxt='n',yaxt='n',xlab=x.label,ylab=y.label,type='n',
+       xlim=rangeX,
+       ylim=rangeY,
+       main=main.label)
+  
+  grid(lty=3,col = '#bbbbbb99')
+  points(x.values,y.values,col="#aaaaaa99",pch=19)
+  
+  # axes definition
+  axis(1, seq(rangeX[1],rangeX[2],stepValue),labels = T,col="#ffffff",font.axis = 1, tck=F)
+  axis(2, seq(rangeY[1],rangeY[2],stepValue),labels = T,col="#ffffff",font.axis = 1, tck=F,las=2)
+}
+
+
+x = runif(60)
+y = runif(60)
+
+myScatterPlot(d$CA1,d$CA2,main.label = "connectivity",rangeX = c(0,4),rangeY = c(0,4),x.label = "time",y.label = "power")
+
+points(d$SSp.ul,d$SSp.un,col=colors$hexcol.alpha[3],pch=19)
