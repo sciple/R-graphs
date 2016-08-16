@@ -34,10 +34,12 @@ myScatterPlot <- function(x.values,
   axis(2, seq(rangeY[1],rangeY[2],stepValue),labels = T,col="#ffffff",font.axis = 1, tck=F,las=2)
 }
 
-
 x = runif(60)
 y = runif(60)
 
-myScatterPlot(d$CA1,d$CA2,main.label = "connectivity",rangeX = c(0,4),rangeY = c(0,4),x.label = "time",y.label = "power")
 
-points(d$SSp.ul,d$SSp.un,col=colors$hexcol.alpha[3],pch=19)
+myScatterPlot(x,y,main.label = "connectivity",rangeX = c(0,1),rangeY = c(0,1),x.label = "time",y.label = "power")
+
+x = rnorm(n = 20,mean = 0.6,sd = 0.1)
+y = runif(20)
+points(x,y,col=get.color("Red",F),pch=19)
