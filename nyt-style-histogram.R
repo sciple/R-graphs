@@ -1,4 +1,3 @@
-set.seed(10)
 d = rnorm(1000)*10
 
 
