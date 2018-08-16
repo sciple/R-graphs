@@ -43,3 +43,5 @@ myScatterPlot(x,y,main.label = "connectivity",rangeX = c(0,1),rangeY = c(0,1),x.
 x = rnorm(n = 20,mean = 0.6,sd = 0.1)
 y = runif(20)
 points(x,y,col=get.color("Red",F),pch=19)
+
+
